@@ -106,7 +106,7 @@ public:
     if (!(services & NODE_NETWORK)) return false;
     if (!ip.IsRoutable()) return false;
     if (clientVersion && clientVersion < REQUIRE_VERSION) return false;
-    if (clientSubVersion && clientSubVersion != REQUIRE_SUBVERSION) return false;
+    if (clientSubVersion != REQUIRE_SUBVERSION) return false;
     if (blocks && blocks < GetRequireHeight()) return false;
 
     if (total <= 3 && success * 2 >= total) return true;
