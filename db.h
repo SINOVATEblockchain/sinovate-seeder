@@ -13,7 +13,6 @@
 #define MIN_RETRY 1000
 
 #define REQUIRE_VERSION 250003
-std::string REQUIRE_SUBVERSION = "/SIN:1.0.0/";
 
 static inline int GetRequireHeight(const bool testnet = fTestNet)
 {
@@ -106,7 +105,7 @@ public:
     if (!(services & NODE_NETWORK)) return false;
     if (!ip.IsRoutable()) return false;
     if (clientVersion && clientVersion < REQUIRE_VERSION) return false;
-    if (clientSubVersion != REQUIRE_SUBVERSION) return false;
+    if (clientSubVersion != "/SIN:1.0.0/") return false;
     if (blocks && blocks < GetRequireHeight()) return false;
 
     if (total <= 3 && success * 2 >= total) return true;
